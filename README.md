@@ -26,7 +26,9 @@ probabilities of enjoying a game. Synthetic results demonstrate behavior, not ma
 
 ## Quick start
 
-Python **3.10–3.12**. Start from a terminal:
+Python **3.11–3.12** for the refreshed dependencies; the October audit uses
+3.12.10 on Windows. The older Python 3.10 results remain in the validation history.
+Start from a terminal with the intended Python interpreter:
 
 ```bash
 git clone https://github.com/Germanskii/steam-recommender.git
@@ -49,6 +51,7 @@ source .venv/bin/activate
 Then:
 
 ```bash
+python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
@@ -159,6 +162,11 @@ On the local archive's CSV, capped to 600 players / 100 games: 12,575 observed i
 
 The hybrid is not uniformly best. These numbers are a reproducibility record, not a
 claim of production recommendation quality. See [validation](docs/VALIDATION.md).
+
+The **29 October 2026** isolated Python 3.12.10 recheck reproduced the rounded
+metrics above on the same locally supplied CSV after the Streamlit dependency
+refresh. The [aggregate audit record](docs/audit-results.json) includes settings
+and counts; it does not bundle the source data.
 
 ## Development and layout
 

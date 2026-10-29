@@ -1,5 +1,30 @@
 # Validation record
 
+## Isolated dependency refresh: 29 October 2026
+
+A fresh Windows / Python 3.12.10 environment installed the original pins, then
+received Streamlit 1.66.1, Pillow 13.0.0 and pytest 9.0.3 to address known
+advisories; local pip was upgraded to 26.2.2. The new environment requires Python
+3.11–3.12. The older Python 3.10 record below applies to the original dependencies.
+
+- All 17 pytest cases passed after the refresh, including Streamlit AppTest.
+- Dependency consistency, Ruff lint/format and both synthetic and local-CSV CLI
+  runs passed. The real CSV's rounded metrics match the existing README table.
+- The local CSV still yielded 600 players, 100 games, 12,575 observations and
+  2,267 held-out interactions. It was read from a separate local working copy;
+  neither source IDs nor raw data were added to the prepared changes.
+- Notebook schema/syntax and sequential execution of all code cells passed.
+- A real local Streamlit server served health and HTML over loopback, then was
+  stopped. Browser upload, screenshot rendering and export clicks were not rerun.
+- pip-audit reported no known vulnerabilities in the final installed package set
+  at the time of this check. This is not a security guarantee.
+
+The workflow is now configured for Python 3.11/3.12; no new remote CI run is
+claimed for this unpublished branch. The recommendation/evaluation algorithms
+are unchanged. Settings and aggregate outputs are in [audit-results.json](audit-results.json).
+
+## Earlier preparation record: 23 September 2026
+
 Date: **2026-09-23**. Local environment: Windows, Python 3.10.11, fresh project virtual
 environment with pinned direct dependencies from the requirements files.
 
