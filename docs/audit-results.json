@@ -1,0 +1,60 @@
+{
+  "environment": {
+    "date": "2026-10-29",
+    "os": "Windows",
+    "python": "3.12.10",
+    "device": "cpu",
+    "processor": "Intel64 Family 6 Model 165 Stepping 2, GenuineIntel",
+    "OMP_NUM_THREADS": 2,
+    "MKL_NUM_THREADS": 2,
+    "concurrent_experiments": true
+  },
+  "command": "python -m steam_rec.cli --csv data/steam-200k.csv",
+  "evaluation": {
+    "seed": 42,
+    "fraction": 0.2,
+    "held_interactions": 2267,
+    "evaluated_players": 600,
+    "cold_items_in_train": 0,
+    "similarity": "cosine",
+    "threshold": 0.2,
+    "user_weight": 0.5,
+    "ranking_k": 5,
+    "source": "Local Steam CSV",
+    "players": 600,
+    "games": 100,
+    "observed": 12575
+  },
+  "metrics": [
+    {
+      "Method": "User-based",
+      "RMSE": "0.9196601451179324",
+      "MAE": "0.7267660645284275",
+      "Recall@5": "0.10861197136197134",
+      "NDCG@5": "0.1166616333652153"
+    },
+    {
+      "Method": "Item-based",
+      "RMSE": "0.9535062144862217",
+      "MAE": "0.7472503752520008",
+      "Recall@5": "0.09382685832685832",
+      "NDCG@5": "0.08752398367451465"
+    },
+    {
+      "Method": "Hybrid",
+      "RMSE": "0.9202251145727179",
+      "MAE": "0.7252649380822666",
+      "Recall@5": "0.10727394827394827",
+      "NDCG@5": "0.11318177136447494"
+    },
+    {
+      "Method": "Item-mean baseline",
+      "RMSE": "0.9518567667076303",
+      "MAE": "0.7707774714363831",
+      "Recall@5": "0.08192738742738742",
+      "NDCG@5": "0.0947238375547213"
+    }
+  ],
+  "data_included": false,
+  "limits": "Locally supplied archive CSV; redistribution rights not established. Warm-user fixed-catalog proxy-score experiment."
+}
